@@ -8,7 +8,6 @@ Language : C++14
 -----------------------------------------------------------------------*/
 
 
-/* using getline, make sure to remove whitspaces & new lines while reading input*/
 #include <cmath>
 #include <cstdio>
 #include <vector>
@@ -25,14 +24,14 @@ int main()
     map<string, long> phone_book;
     map<string, long>::iterator query_result;
     cin >> n;
-    cin >> ws;
     while (n--) {
-        getline(cin >> ws, key, ' ');
+        cin >> key;
         cin >> value;
+        cin >> ws;
         if (phone_book.find(key) == phone_book.end())
             phone_book.insert(pair<string, long>(key, value));
     }
-    while (getline(cin >> ws, query)) {
+    while (cin >> query) {
         query_result = phone_book.find(query);
         if (query_result == phone_book.end()) {
             cout << "Not found";
@@ -42,5 +41,6 @@ int main()
         }
         cout << endl;
     }
+
     return 0;
 }
