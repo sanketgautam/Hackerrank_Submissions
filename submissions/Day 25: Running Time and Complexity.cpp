@@ -19,14 +19,11 @@ bool isPrime(int n)
 {
     int i, s;
 
-    if (n == 2)
-        return true;
-
-    if (n == 1 || n % 2 == 0)
+    if (n == 1)
         return false;
 
     s = sqrt(n);
-    for (i = 3; i <= s; i += 2) {
+    for (i = 2; i <= s; i++) {
         if (n % i == 0) {
             return false;
         }
