@@ -12,7 +12,8 @@ class TestDataEmptyArray {
 public:
     static vector<int> get_array()
     {
-        return {};
+        vector<int> v;
+        return v;
     }
 };
 
@@ -20,7 +21,14 @@ class TestDataUniqueValues {
 public:
     static vector<int> get_array()
     {
-        return { 1, 2, 3, 4 };
+        vector<int> v;
+
+        v.push_back(1);
+        v.push_back(2);
+        v.push_back(3);
+        v.push_back(4);
+
+        return v;
     }
 
     static int get_expected_result()
@@ -33,7 +41,14 @@ class TestDataExactlyTwoDifferentMinimums {
 public:
     static vector<int> get_array()
     {
-        return { 2, 1, 1, 4 };
+        vector<int> v;
+
+        v.push_back(2);
+        v.push_back(1);
+        v.push_back(1);
+        v.push_back(4);
+
+        return v;
     }
 
     static int get_expected_result()
