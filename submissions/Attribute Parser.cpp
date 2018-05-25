@@ -133,9 +133,6 @@ public:
                     s.push(this);
                 }
                 else {
-                    //not possible to get  open tag when stack is empty
-                    // so assuming that there is atleast a tag in stack
-                    //here we get a child of top of stack element
                     Node* child = new Node();
                     child->tagname = tagname;
                     child->attrs = attrs;
