@@ -8,3 +8,19 @@ Language : C++
 -----------------------------------------------------------------------*/
 
 
+int getNode(SinglyLinkedListNode* head, int positionFromTail)
+{
+
+    SinglyLinkedListNode *cur = head, *res = head;
+    int i = 0;
+
+    while (cur) {
+        cur = cur->next;
+        if (i > positionFromTail) {
+            res = res->next;
+        }
+        i++;
+    }
+
+    return res->data;
+}
