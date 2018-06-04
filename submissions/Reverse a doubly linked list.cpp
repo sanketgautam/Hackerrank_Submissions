@@ -11,15 +11,15 @@ Language : C++
 DoublyLinkedListNode* reverse(DoublyLinkedListNode* head)
 {
 
-    DoublyLinkedListNode *temp = head, *t = head, *prev;
+    DoublyLinkedListNode *cur = head, *prev, *start;
 
-    while (temp) {
-        prev = temp->prev;
-        temp->prev = temp->next;
-        temp->next = prev;
-        t = temp;
-        temp = temp->prev;
+    while (cur) {
+        prev = cur->prev;
+        cur->prev = cur->next;
+        cur->next = prev;
+        start = cur;
+        cur = cur->prev;
     }
 
-    return t;
+    return start;
 }
