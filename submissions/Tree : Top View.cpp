@@ -55,6 +55,7 @@ void topView(node *root) {
 */
 
 //This is the accepted solution for the problem (on HackerRank)
+//Note: This solution will not work if the tree has long branches from the left extending to the right or vice versa.
 void topView(node* root)
 {
     stack<node*> s;
