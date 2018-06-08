@@ -22,9 +22,34 @@ struct node
 
 void preOrder(node* root)
 {
+    node *cur, *prev;
+
     if (!root)
         return;
-    cout << root->data << " ";
-    preOrder(root->left);
-    preOrder(root->right);
+
+    cur = root;
+
+    while (cur) {
+        if (!cur->left) {
+            cout << cur->data << " ";
+            cur = cur->right;
+        }
+        else {
+            prev = cur->left;
+
+            while (prev->right != NULL && prev->right != cur) {
+                prev = prev->right;
+            }
+
+            if (!prev->right) {
+                prev->right = cur;
+                cout << cur->data << " ";
+                cur = cur->left;
+            }
+            else {
+                prev->right = NULL;
+                cur = cur->right;
+            }
+        }
+    }
 }
