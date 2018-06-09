@@ -23,15 +23,50 @@ typedef struct node
 
 */
 
-node* lca(node* root, int& v1, int& v2)
+node* lca(node* root, int v1, int v2)
 {
-    if (root->data < v1 && root->data < v2) {
-        return lca(root->right, v1, v2);
+    node* temp = root;
+    int i, l;
+
+    vector<node*> p1;
+    vector<node*> p2;
+
+    //storing path for v1
+    while (temp->data != v1) {
+
+        p1.push_back(temp);
+        if (v1 < temp->data) {
+            temp = temp->left;
+        }
+        else {
+            temp = temp->right;
+        }
     }
 
-    if (root->data > v1 && root->data > v2) {
-        return lca(root->left, v1, v2);
+    p1.push_back(temp);
+    temp = root;
+
+    //storing path for v2
+    while (temp->data != v2) {
+        p2.push_back(temp);
+        if (v2 < temp->data) {
+            temp = temp->left;
+        }
+        else {
+            temp = temp->right;
+        }
     }
 
-    return root;
+    p2.push_back(temp);
+    temp = root;
+
+    l = (p1.size() < p2.size()) ? p1.size() : p2.size();
+
+    for (i = 0; i < l; i++) {
+        if (p1[i]->data != p2[i]->data)
+            break;
+        temp = p1[i];
+    }
+
+    return temp;
 }
