@@ -17,19 +17,29 @@ Language : C++
 #include <limits>
 using namespace std;
 
-int main()
-{
-    int q, t, n, m = numeric_limits<int>::min();
+
+int main() {
+    int q, t, n, m=numeric_limits<int>::min();
     stack<int> s;
-
-    cin >> q;
-
-    cin >> t;
-    if (t == 1) {
-        cin >> n;
-        m = max(m, n);
-        s.push(m);
+    
+    cin>>q;
+    
+    while(q--){
+        cin>>t;
+        if(t==1){
+            cin>>n;
+            m = max(m, n);
+            s.push(m);
+        }else if(t==2){
+            s.pop();
+            if(s.empty())
+                m = numeric_limits<int>::min();
+            else
+                m = s.top();
+        }else if(t==3){
+            cout<<m<<"\n";
+        }
     }
-    else if (t == 2) {
-        s.pop();
-        if (s.empty())
+    
+    return 0;
+}
